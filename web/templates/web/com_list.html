@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/comlist.css' %}">
+
+{% if latest_com_list %}
+    <ul>
+    {% for question in latest_com_list %}
+        <li><a href="{% url 'detail' question.id %}">{{ question.name }}</a></li>   <!--使用urls.py中的路径名-->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
